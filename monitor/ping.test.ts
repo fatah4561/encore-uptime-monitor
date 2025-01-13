@@ -15,7 +15,7 @@ describe("ping", () => {
   ];
 
   test.each(testCases)(
-    ({ site, expected }) => `should verify that ${site} is ${expected ? "up" : "down"}`,
+    ({ site, expected }: TestCase) => `should verify that ${site} is ${expected ? "up" : "down"}`,
     async ({ site, expected }: TestCase) => {
       const resp = await ping({ url: site });
       expect(resp.up).toBe(expected);
